@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+:root {
+  --bg-dark: #0a0a0c;
+  --glass: rgba(255, 255, 255, 0.05);
+  --neon-cyan: #00f2ff;
+  --neon-purple: #bc13fe;
+  --text-main: #e0e0e0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.glass-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+  transform: translateY(-5px);
 }
 
-.App-link {
-  color: #61dafb;
+/* Neon Text & Animations */
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-cyan);
+  color: var(--neon-cyan);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.typing-animation {
+  border-right: 3px solid var(--neon-purple);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(30, end) infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.nav-link-active {
+  color: var(--neon-cyan) !important;
+  border-bottom: 2px solid var(--neon-cyan);
+}
+
+.github-btn:hover {
+  background: white !important;
+  box-shadow: 0 0 20px #fff;
+  transform: scale(1.02);
 }
